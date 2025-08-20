@@ -4,12 +4,17 @@ const options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'My Express API',
+      title: 'To-Do List Backend API',
       version: '1.0.0',
-      description: 'A simple Express API documented with Swagger',
-    }
+      description: 'Express API for user auth, tasks CRUD, and email notifications',
+    },
+    tags: [
+      { name: 'Health', description: 'Service health checks' },
+      { name: 'Auth', description: 'User registration, login, account' },
+      { name: 'Tasks', description: 'CRUD for user tasks' }
+    ]
   },
-  apis: ['./src/routes/*.js'], // Path to the API docs
+  apis: ['./src/routes/**/*.js'], // include nested route files
 };
 
 const swaggerSpec = swaggerJSDoc(options);
